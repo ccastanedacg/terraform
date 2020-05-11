@@ -20,7 +20,7 @@ variable "environment" {
 
 variable "subnet_ids" {
   description = "List of subnet IDs with access to internet gateway"
-  type        = "list"
+  type = list(string)
 }
 
 variable "vpc_id" {

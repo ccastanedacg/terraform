@@ -1,6 +1,7 @@
 #-------asg/sg.tf
 # Creates EC2-VPC security groups on AWS
 # https://github.com/terraform-aws-modules/terraform-aws-security-group
+# TODO: Readapt module to new terraform version
 module "sg" {
   source = "terraform-aws-modules/security-group/aws"
   version = "1.19.0"
@@ -15,9 +16,9 @@ module "sg" {
   egress_rules  = ["all-all"]
 
   tags = {
-    Name        = "${var.app}-${var.environment}"
-    environment = "${var.environment}"
-    service     = "${var.app}"
-    terraform   = "true"
+    Name = "${var.app}-${var.environment}"
+    environment = var.environment
+    service = var.app
+    terraform = "true"
   }
 }

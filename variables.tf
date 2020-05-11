@@ -6,8 +6,12 @@ variable "environment" {}
 
 #------networking variables
 variable "vpc_cidr" {}
-variable "public_subnets" { type = "list"}
-variable "private_subnets" {type = "list"}
+variable "public_subnets" {
+  type = list(string)
+}
+variable "private_subnets" {
+  type = list(string)
+}
 
 #------asg variables
 variable "key_name" {}

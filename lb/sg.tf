@@ -1,8 +1,8 @@
 #-------lb/sg.tf
 resource "aws_security_group" "app" {
-  name        = "${var.app}"
+  name = var.app
   description = "Allows HTTP and HTTPS access from anywhere"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id = var.vpc_id
 
   # HTTP access from anywhere
   ingress {
@@ -20,9 +20,9 @@ resource "aws_security_group" "app" {
   }
 
   tags {
-    Name        = "${var.app}-${var.environment}"
-    environment = "${var.environment}"
-    service     = "${var.app}"
-    terraform   = "true"
+    Name = "${var.app}-${var.environment}"
+    environment = var.environment
+    service = var.app
+    terraform = "true"
   }
 }
