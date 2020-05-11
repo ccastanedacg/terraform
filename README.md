@@ -25,3 +25,4 @@
 ### TODO:
 - [ ] Refactor project to work with terraform new version
 - [ ] Recreate security group resources
+- [ ] Recreate rds resources
