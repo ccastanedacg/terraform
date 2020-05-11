@@ -2,17 +2,19 @@
 # Classic Load Balancer
 # https://www.terraform.io/docs/providers/aws/r/elb.html
 resource "aws_elb" "app" {
-  name            = "${var.app}"
-  security_groups = ["${aws_security_group.app.id}"]
+  name = var.app
+  security_groups = [
+    aws_security_group.app.id]
 
   # List of subnets with access to an Internet Gateway
-  subnets = ["${var.subnet_ids}"]
+  subnets = [
+    var.subnet_ids]
 
   listener {
-    instance_port     = "${var.app_port}"
+    instance_port = var.app_port
     instance_protocol = "http"
-    lb_port           = 80
-    lb_protocol       = "http"
+    lb_port = 80
+    lb_protocol = "http"
   }
 
   health_check {
@@ -24,16 +26,16 @@ resource "aws_elb" "app" {
   }
 
   tags {
-    Name        = "${var.app}-${var.environment}"
-    environment = "${var.environment}"
-    service     = "${var.app}"
-    terraform   = "true"
+    Name = "${var.app}-${var.environment}"
+    environment = var.environment
+    service = var.app
+    terraform = "true"
   }
 }
 
 # Attaches ASG to ELB
 # https://www.terraform.io/docs/providers/aws/r/autoscaling_attachment.html
 resource "aws_autoscaling_attachment" "default" {
-  autoscaling_group_name = "${var.asg_id}"
-  elb                    = "${aws_elb.app.id}"
+  autoscaling_group_name = var.asg_id
+  elb = aws_elb.app.id
 }
