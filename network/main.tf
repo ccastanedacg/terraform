@@ -1,6 +1,7 @@
 #-------networking/main.tf
 # Creates VPC resources on AWS
 # https://github.com/terraform-aws-modules/terraform-aws-vpc
+# TODO: Recreate vpc resources
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = "1.19.0"
