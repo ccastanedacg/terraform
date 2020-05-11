@@ -34,11 +34,6 @@ variable "asg_min" {
   default     = "1"
 }
 
-#variable "key_pair_name" {
-#  description = "Name of the AWS key pair"
-#  default     = "cloudops"
-#}
-
 variable "subnet_ids" {
   description = "List of subnet IDs for ASG"
   type        = "list"

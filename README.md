@@ -21,3 +21,7 @@
     • Define variables for ALL resources used.
     • If possible, reach resource created must have at least one distinctive tag.
     • Backends and remote states.
+
+### TODO:
+- [ ] Refactor project to work with terraform new version
+- [ ] Recreate security group resources
